@@ -1,0 +1,15 @@
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Infra.Data\bin\Debug\net6.0\InvestmentWallet.Infra.Data.deps.json
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Infra.Data\bin\Debug\net6.0\InvestmentWallet.Infra.Data.dll
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Infra.Data\bin\Debug\net6.0\InvestmentWallet.Infra.Data.pdb
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Infra.Data\bin\Debug\net6.0\InvestmentWallet.Domain.dll
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Infra.Data\bin\Debug\net6.0\InvestmentWallet.Domain.pdb
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Infra.Data\obj\Debug\net6.0\InvestmentWallet.Infra.Data.csproj.AssemblyReference.cache
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Infra.Data\obj\Debug\net6.0\InvestmentWallet.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Infra.Data\obj\Debug\net6.0\InvestmentWallet.Infra.Data.AssemblyInfoInputs.cache
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Infra.Data\obj\Debug\net6.0\InvestmentWallet.Infra.Data.AssemblyInfo.cs
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Infra.Data\obj\Debug\net6.0\InvestmentWallet.Infra.Data.csproj.CoreCompileInputs.cache
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Infra.Data\obj\Debug\net6.0\InvestmentWallet.Infra.Data.csproj.CopyComplete
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Infra.Data\obj\Debug\net6.0\InvestmentWallet.Infra.Data.dll
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Infra.Data\obj\Debug\net6.0\refint\InvestmentWallet.Infra.Data.dll
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Infra.Data\obj\Debug\net6.0\InvestmentWallet.Infra.Data.pdb
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Infra.Data\obj\Debug\net6.0\ref\InvestmentWallet.Infra.Data.dll

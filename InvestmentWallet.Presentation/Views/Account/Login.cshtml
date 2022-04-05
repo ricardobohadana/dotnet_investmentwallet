@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/Layout_Account.cshtml";
+}
+
+@model InvestmentWallet.Presentation.Models.AccountLoginModel
+
+<div>
+    <h2 class="card-title text-center">Acesso ao sistema</h2>
+    <p class="text-muted text-center small">Não tem conta? <a href="/Account/Register" class="text-decoration-underline text-muted link-light">Cadastre-se aqui</a></p>
+
+    @using (Html.BeginForm(FormMethod.Post, new {@class=""}))
+    {
+                        
+        <div class="mb-3">
+            <div class="form-outline">
+                @Html.TextBoxFor(model => Model.Email, new {@class="form-control text-white-50", @id="email"})
+                <label class="form-label text-white" for="email">Email</label>
+            </div>
+            <div class="text-danger small">@Html.ValidationMessageFor(model => model.Email)</div>
+        </div>
+        <div class="mb-3">
+            <div class="form-outline">
+                @Html.PasswordFor(model => Model.Senha, new {@class="form-control text-white-50", @id="senha"})
+                <label class="form-label text-white" for="senha">Senha</label>
+            </div>
+            <div class="text-danger small">@Html.ValidationMessageFor(model => model.Senha)</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary form-control">Acessar o sistema</button>
+    }
+</div>

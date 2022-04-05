@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "CXDUs6ZGrfJcbr5578L619wTLHYeWsijGjB/OQDY16vXsuPWPVwgwdS4jWfsZJENwx235HEkoNJGltDuieyjDw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\bmart\\Documents\\Dev\\C#\\InvestmentWallet\\InvestmentWallet.Domain\\InvestmentWallet.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bmart\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.3\\microsoft.aspnetcore.cryptography.internal.6.0.3.nupkg.sha512",
+    "C:\\Users\\bmart\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.3\\microsoft.aspnetcore.cryptography.keyderivation.6.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

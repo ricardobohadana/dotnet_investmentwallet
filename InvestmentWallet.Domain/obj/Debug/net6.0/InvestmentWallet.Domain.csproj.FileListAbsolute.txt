@@ -1,0 +1,12 @@
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Domain\bin\Debug\net6.0\InvestmentWallet.Domain.deps.json
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Domain\bin\Debug\net6.0\InvestmentWallet.Domain.dll
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Domain\bin\Debug\net6.0\InvestmentWallet.Domain.pdb
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Domain\obj\Debug\net6.0\InvestmentWallet.Domain.csproj.AssemblyReference.cache
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Domain\obj\Debug\net6.0\InvestmentWallet.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Domain\obj\Debug\net6.0\InvestmentWallet.Domain.AssemblyInfoInputs.cache
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Domain\obj\Debug\net6.0\InvestmentWallet.Domain.AssemblyInfo.cs
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Domain\obj\Debug\net6.0\InvestmentWallet.Domain.csproj.CoreCompileInputs.cache
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Domain\obj\Debug\net6.0\InvestmentWallet.Domain.dll
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Domain\obj\Debug\net6.0\refint\InvestmentWallet.Domain.dll
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Domain\obj\Debug\net6.0\InvestmentWallet.Domain.pdb
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Domain\obj\Debug\net6.0\ref\InvestmentWallet.Domain.dll

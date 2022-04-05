@@ -1,0 +1,74 @@
+﻿@model InvestmentWallet.Presentation.Models.CarteiraCriarModel
+@{
+    ViewData["Title"] = "Criar";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<nav class="navbar navbar-expand-lg bg-info mt-5">
+  <div class="container-fluid">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/Dashboard/Index">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="/Carteira/Index">Carteira</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+      </ol>
+    </nav>
+  </div>
+</nav>
+<section class="">
+    <div class="row d-flex justify-content-center align-items-center mt-5">
+            <div class="col-md-6">
+                <div class="card bg-dark bg-gradient text-white">
+                    <div class="card-header">
+                        <h3>
+                            Criar carteira
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        @using (Html.BeginForm(FormMethod.Post, new {@class=""}))
+                        {
+                        
+                            <div class="mb-3">
+                                <div class="form-outline">
+                                    @Html.TextBoxFor(model => model.Nome, new {@class="form-control text-white-50", @id="nome"})
+                                    <label class="form-label text-white" for="nome">Nome</label>
+                                </div>
+                                <div class="text-danger small">@Html.ValidationMessageFor(model => model.Nome)</div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="form-outline">
+                                    @Html.TextAreaFor(model => model.Descricao, new {@class="form-control text-white-50", @id="desc"})
+                                    <label class="form-label text-white" for="desc">Descricao</label>
+                                </div>
+                                <div class="text-danger small">@Html.ValidationMessageFor(model => model.Descricao)</div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary form-control">Criar carteira</button>
+                        }
+                    </div>
+                    <div class="card-footer text-center">
+                            <!-- Exibir mensagens -->
+                        @if (TempData["MensagemSucesso"] != null)
+                        {
+                        <div class="bg-success text-center text-light form-control">
+                            <strong>Parabéns!</strong> @TempData["MensagemSucesso"]
+                        </div>
+                        }
+                        else if (TempData["MensagemAlerta"] != null)
+                        {
+                        <div class="bg-warning text-light text-center form-control">
+                            <strong>Alerta!</strong> @TempData["MensagemAlerta"]
+                        </div>
+                        }
+                        else if (TempData["MensagemErro"] != null)
+                        {
+                        <div class="bg-danger text-light text-center form-control">
+                            <strong>Erro!</strong> @TempData["MensagemErro"]
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+</section>

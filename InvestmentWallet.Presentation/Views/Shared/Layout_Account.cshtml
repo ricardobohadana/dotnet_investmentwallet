@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>InvestmentWallet</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/global.css" />
+    <link rel="stylesheet" href="~/css/mdb.min.css" />
+</head>
+<body class="bg-dark">
+    <div class="container min-vh-100">
+        <div class="row d-flex justify-content-center min-vh-100 align-items-center">
+            <div class="col-md-6">
+                <div class="card bg-dark bg-gradient text-white">
+                    <div class="card-body">@RenderBody()</div>
+                    <div class="card-footer text-center">
+                            <!-- Exibir mensagens -->
+                        @if (TempData["MensagemSucesso"] != null)
+                        {
+                        <div class="bg-success text-center text-light form-control">
+                            <strong>Parabéns!</strong> @TempData["MensagemSucesso"]
+                        </div>
+                        }
+                        else if (TempData["MensagemAlerta"] != null)
+                        {
+                        <div class="bg-warning text-light text-center form-control">
+                            <strong>Alerta!</strong> @TempData["MensagemAlerta"]
+                        </div>
+                        }
+                        else if (TempData["MensagemErro"] != null)
+                        {
+                        <div class="bg-danger text-light text-center form-control">
+                            <strong>Erro!</strong> @TempData["MensagemErro"]
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="~/js/mdb.min.js"></script>
+</body>
+</html>

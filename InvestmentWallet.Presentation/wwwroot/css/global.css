@@ -1,0 +1,20 @@
+﻿html,body {
+    height: 100%;
+    font-family: Verdana, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.table > :not(caption) > * > * {
+    padding: 0.5rem !important;
+    margin: auto;
+}
+
+td {
+    padding: 0.5rem !important;
+    vertical-align: middle !important;
+}

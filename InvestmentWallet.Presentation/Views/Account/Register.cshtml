@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/Layout_Account.cshtml";
+}
+@model InvestmentWallet.Presentation.Models.AccountRegisterModel
+
+<div>
+    <h2 class="card-title text-center">Cadastro no sistema</h2>
+    <p class="text-muted text-center small">Já tem conta? <a href="/Account/Login" class="text-decoration-underline text-muted link-light">Entre aqui</a></p>
+
+    @using (Html.BeginForm(FormMethod.Post, new {@class=""}))
+    {
+              
+        <div class="mb-3">
+            <div class="form-outline">
+                @Html.TextBoxFor(model => Model.Nome, new {@class="form-control text-white-50", @id="Nome"})
+                <label class="form-label text-white" for="nome">Nome</label>
+            </div>
+            <div class="text-danger small">@Html.ValidationMessageFor(model => model.Nome)</div>
+        </div>
+        <div class="mb-3">
+            <div class="form-outline">
+                @Html.TextBoxFor(model => Model.Email, new {@class="form-control text-white-50", @id="email"})
+                <label class="form-label text-white" for="email">Email</label>
+            </div>
+            <div class="text-danger small">@Html.ValidationMessageFor(model => model.Email)</div>
+        </div>
+        <div class="mb-3">
+            <div class="form-outline">
+                @Html.PasswordFor(model => Model.Senha, new {@class="form-control text-white-50", @id="senha"})
+                <label class="form-label text-white" for="senha">Senha</label>
+            </div>
+            <div class="text-danger small">@Html.ValidationMessageFor(model => model.Senha)</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary form-control mb-3">Cadastrar</button>
+        }
+</div>
