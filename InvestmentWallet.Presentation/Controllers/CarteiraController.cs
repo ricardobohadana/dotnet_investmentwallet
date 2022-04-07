@@ -1,5 +1,6 @@
 ﻿using InvestmentWallet.Domain.Entities;
 using InvestmentWallet.Domain.Interfaces.Repositories;
+using InvestmentWallet.Domain.Interfaces.Services;
 using InvestmentWallet.Presentation.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -9,18 +10,11 @@ namespace InvestmentWallet.Presentation.Controllers
     [Authorize]
     public class CarteiraController : Controller
     {
-        public IActionResult Index([FromServices] ICarteiraRepository carteiraRepository, [FromServices] IOperacaoRepository operacaoRepository)
+        public IActionResult Index([FromServices] ICarteiraDomainService carteiraDomainService)
         {
             Guid idUsuario = Guid.Parse(HttpContext.User.Identity.Name);
 
-            List<Carteira> carteiraList = carteiraRepository.ObterPorIdUsuario(idUsuario);
-            List<Operacao> operacaoList = operacaoRepository.ObterPorListaDeIdCarteiras(
-                carteiraList.Select(carteira => carteira.IdCarteira).ToList()
-            );
-            foreach (Carteira carteira in carteiraList)
-            {
-                carteira.Operacoes = operacaoList.FindAll(op => op.Carteira.IdCarteira == carteira.IdCarteira).ToList();
-            }
+            List<Carteira> carteiraList = carteiraDomainService.ObterCarteirasPorUsuarioComOperacoes(idUsuario);
 
             CarteiraIndexModel model = new CarteiraIndexModel()
             {
@@ -37,7 +31,7 @@ namespace InvestmentWallet.Presentation.Controllers
         }
 
         [HttpPost]
-        public IActionResult Criar(CarteiraCriarModel model, [FromServices] ICarteiraRepository carteiraRepository)
+        public IActionResult Criar(CarteiraCriarModel model, [FromServices] ICarteiraDomainService carteiraDomainService)
         { 
             if (!ModelState.IsValid)
             {
@@ -55,7 +49,7 @@ namespace InvestmentWallet.Presentation.Controllers
                     IdUsuario = Guid.Parse(HttpContext.User.Identity.Name)
                 };
 
-                carteiraRepository.Inserir(carteira);
+                carteiraDomainService.Cadastrar(carteira);
                 ModelState.Clear();
                 TempData["MensagemSucesso"] = $"Parabéns, sua carteira foi criada com sucesso!";
 

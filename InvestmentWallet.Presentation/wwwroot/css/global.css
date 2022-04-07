@@ -18,3 +18,8 @@ td {
     padding: 0.5rem !important;
     vertical-align: middle !important;
 }
+
+.bg-dark-50 {
+    background-color: #343434;
+    max-height: 35px;
+}

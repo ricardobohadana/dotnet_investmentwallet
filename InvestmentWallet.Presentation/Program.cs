@@ -33,6 +33,7 @@ builder.Services.AddTransient<ITipoAtivoRepository>(map => new TipoAtivoReposito
 builder.Services.AddTransient<ITipoOperacaoRepository>(map => new TipoOperacaoRepository(connectionString));
 builder.Services.AddTransient<IUsuarioDomainService, UsuarioDomainService>();
 builder.Services.AddTransient<IOperacaoDomainService, OperacaoDomainService>();
+builder.Services.AddTransient<ICarteiraDomainService, CarteiraDomainService>();
 
 
 // Habilitando o projeto para usar cookies e autenticação de acesso

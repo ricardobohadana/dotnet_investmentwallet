@@ -92,34 +92,31 @@
                             </div>
                             
                             <div class="row mb-3">
-                                <label>Selecione uma carteira para adicionar a operação:</label>
-                                @foreach(Carteira carteira in Model.Carteiras)
-                                {
-                                    <div class="form-check ms-4">
-                                        @Html.RadioButtonFor(model => model.Carteira, carteira.IdCarteira, new { @class = "form-check-input", @id = carteira.IdCarteira.ToString() })
-                                        <label class="form-check-label" for=@carteira.IdCarteira.ToString()>@carteira.Nome</label>
-                                    </div>
-                                }
+                                <div class="col">
+                                    @*
+                                    <label>Selecione uma carteira</label>
+                                    *@
+                                    @Html.DropDownListFor(model => model.Carteira, Model.SelectItemsCarteira, "Escolha uma carteira", new { @class = "form-select bg-dark-50 text-light" })
+                                    <div class="text-danger small">@Html.ValidationMessageFor(model => model.Carteira)</div>
+                                </div>
                             </div>
-                            <div class="row mb-3">
-                                <label>Selecione o ativo da operação:</label>
-                                @foreach(TipoAtivo tipoAtivo in Model.TiposAtivo)
-                                {
-                                    <div class="form-check ms-4">
-                                        @Html.RadioButtonFor(model => model.TipoAtivo, tipoAtivo.IdTipoAtivo, new { @class = "form-check-input", @id = tipoAtivo.IdTipoAtivo.ToString() })
-                                        <label class="form-check-label" for=@tipoAtivo.IdTipoAtivo.ToString()>@tipoAtivo.Nome</label>
-                                    </div>
-                                }
+                             <div class="row mb-3">
+                                 <div class="col">
+                                     @*
+                                    <label>Selecione uma carteira para adicionar a operação:</label>
+                                     *@
+                                    @Html.DropDownListFor(model => model.TipoAtivo, Model.SelectItemsTipoAtivo, "Escolha o ativo", new { @class = "form-select bg-dark-50 text-light" })
+                                    <div class="text-danger small">@Html.ValidationMessageFor(model => model.TipoAtivo)</div>
+                                </div>
                             </div>
-                            <div class="row mb-3">
-                                <label>Selecione o tipo da operação:</label>
-                                @foreach(TipoOperacao tiposOperacao in Model.TiposOperacao)
-                                {
-                                    <div class="form-check ms-4">
-                                        @Html.RadioButtonFor(model => model.TipoOperacao, tiposOperacao.IdTipoOperacao, new { @class = "form-check-input", @id = tiposOperacao.IdTipoOperacao.ToString() })
-                                        <label class="form-check-label" for=@tiposOperacao.IdTipoOperacao.ToString()>@tiposOperacao.Nome</label>
-                                    </div>
-                                }
+                             <div class="row mb-3">
+                                 <div class="col">
+                                     @*
+                                    <label>Selecione uma carteira para adicionar a operação:</label>
+                                     *@
+                                    @Html.DropDownListFor(model => model.TipoOperacao, Model.SelectItemsTipoOperacao, "Escolha a operação", new { @class = "form-select bg-dark-50 text-light" })
+                                <div class="text-danger small">@Html.ValidationMessageFor(model => model.TipoOperacao)</div>
+                                </div>
                             </div>
 
                             <div class="row mb-3">
@@ -131,7 +128,6 @@
                                     <div class="text-danger small">@Html.ValidationMessageFor(model => model.DataOperacao)</div>
                                 </div>
                             </div>
-
 
                             <div class="mb-3">
                                 <div class="form-outline">

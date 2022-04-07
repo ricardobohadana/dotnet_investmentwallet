@@ -76,5 +76,6 @@ namespace InvestmentWallet.Domain.Services
             return _operacaoRepository.ObterPorListaDeIdCarteiras(idsCarteira);
 
         }
+
     }
 }

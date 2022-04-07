@@ -14,5 +14,6 @@ namespace InvestmentWallet.Domain.Interfaces.Services
         public (List<TipoOperacao>, List<TipoAtivo>, List<Carteira>) FornecerDadosCriacao(Guid idUsuario);
 
         public void CriarOperacao(Operacao operacao);
+
     }
 }

@@ -1,4 +1,4 @@
-﻿using InvestmentWallet.Domain.Entities;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
 namespace InvestmentWallet.Presentation.Models
@@ -29,16 +29,17 @@ namespace InvestmentWallet.Presentation.Models
         public string Carteira { get; set; }
 
 
-        public List<Carteira>? Carteiras { get; set; }
-
         [Required(ErrorMessage = "Por favor, preencha este campo.")]
         public string TipoAtivo { get; set; }
 
-        public List<TipoAtivo>? TiposAtivo { get; set; }
 
         [Required(ErrorMessage = "Por favor, selecione um tipo de operação.")]
         public string TipoOperacao { get; set; }
 
-        public List<TipoOperacao>? TiposOperacao { get; set; }
+
+        public List<SelectListItem>? SelectItemsCarteira { get; set; }
+        public List<SelectListItem>? SelectItemsTipoAtivo { get; set; }
+        public List<SelectListItem>? SelectItemsTipoOperacao { get; set; }
+
     }
 }
