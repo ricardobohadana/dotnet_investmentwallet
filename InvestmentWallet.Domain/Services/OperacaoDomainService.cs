@@ -4,6 +4,7 @@ using InvestmentWallet.Domain.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,7 +25,7 @@ namespace InvestmentWallet.Domain.Services
             _tipoOperacaoRepository = tipoOperacaoRepository;
         }
 
-        public void CriarOperacao(Operacao operacao)
+        private bool estaAceitavel(Operacao operacao)
         {
             // REGRA 1: NÃO PERMITIR QUANTIDADE 0 ou NEGATIVA
             if (operacao.QuantidadeAtivo <= 0)
@@ -57,8 +58,13 @@ namespace InvestmentWallet.Domain.Services
                 throw new Exception("Não é possível criar operações que ainda serão feitas em datas futuras.");
             }
 
-            _operacaoRepository.Inserir(operacao);
-            
+            return true;
+        }
+
+        public void CriarOperacao(Operacao operacao)
+        {
+            if (estaAceitavel(operacao))
+                _operacaoRepository.Inserir(operacao);
         }
 
         public (List<TipoOperacao>, List<TipoAtivo>, List<Carteira>) FornecerDadosCriacao(Guid idUsuario)
@@ -70,12 +76,48 @@ namespace InvestmentWallet.Domain.Services
             return (tiposOperacao, tiposAtivo, carteiras);
         }
 
+        public Operacao FornecerDadosEdicao(Guid idOperacao)
+        {
+            Operacao operacao = _operacaoRepository.ObterPorId(idOperacao);
+
+            if (operacao == null)
+            {
+                throw new Exception("A operação não existe.");
+            }
+
+            return operacao;
+        }
+
         public List<Operacao>  ObterDadosIndex(Guid idUsuario)
         {
             List<Guid> idsCarteira = _carteiraRepository.ObterPorIdUsuario(idUsuario).Select(carteira => carteira.IdCarteira).ToList();
             return _operacaoRepository.ObterPorListaDeIdCarteiras(idsCarteira);
-
         }
 
+        private bool isSameObject(Operacao oldInstance, Operacao newInstance)
+        {
+            var oldProperties = oldInstance.GetType().GetProperties();
+            var newProperties = newInstance.GetType().GetProperties();
+            foreach (PropertyInfo info in oldProperties)
+            {
+                if (info.GetValue(oldInstance, null) != info.GetValue(newInstance, null)){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public void AtualizarOperacao(Operacao operacao)
+        {
+            Operacao oldOperacao = _operacaoRepository.ObterPorId(operacao.IdOperacao);
+
+            if (isSameObject(oldOperacao, operacao))
+            {
+                throw new Exception("Para requisitar uma atualização, é necessário realizar pelo menos uma modificação!");
+            }
+
+            if (estaAceitavel(operacao))
+                _operacaoRepository.Alterar(operacao);
+        }
     }
 }

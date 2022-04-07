@@ -15,5 +15,9 @@ namespace InvestmentWallet.Domain.Interfaces.Services
 
         public void CriarOperacao(Operacao operacao);
 
+        public Operacao FornecerDadosEdicao(Guid idOperacao);
+
+        public void AtualizarOperacao(Operacao operacao);
+
     }
 }

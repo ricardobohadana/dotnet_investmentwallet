@@ -10,3 +10,15 @@ C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Domain\obj\Deb
 C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Domain\obj\Debug\net6.0\refint\InvestmentWallet.Domain.dll
 C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Domain\obj\Debug\net6.0\InvestmentWallet.Domain.pdb
 C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Domain\obj\Debug\net6.0\ref\InvestmentWallet.Domain.dll
+D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Domain\obj\Debug\net6.0\InvestmentWallet.Domain.csproj.AssemblyReference.cache
+D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Domain\obj\Debug\net6.0\InvestmentWallet.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Domain\obj\Debug\net6.0\InvestmentWallet.Domain.AssemblyInfoInputs.cache
+D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Domain\obj\Debug\net6.0\InvestmentWallet.Domain.AssemblyInfo.cs
+D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Domain\obj\Debug\net6.0\InvestmentWallet.Domain.csproj.CoreCompileInputs.cache
+D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Domain\obj\Debug\net6.0\InvestmentWallet.Domain.dll
+D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Domain\obj\Debug\net6.0\refint\InvestmentWallet.Domain.dll
+D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Domain\obj\Debug\net6.0\InvestmentWallet.Domain.pdb
+D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Domain\bin\Debug\net6.0\InvestmentWallet.Domain.deps.json
+D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Domain\bin\Debug\net6.0\InvestmentWallet.Domain.dll
+D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Domain\bin\Debug\net6.0\InvestmentWallet.Domain.pdb
+D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Domain\obj\Debug\net6.0\ref\InvestmentWallet.Domain.dll

@@ -1,0 +1,149 @@
+﻿@model InvestmentWallet.Presentation.Models.OperacaoEditarModel
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<nav class="navbar navbar-expand-lg bg-info mt-5">
+  <div class="container-fluid">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/Dashboard/Index">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="/Operacao/Index">Operações</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+      </ol>
+    </nav>
+  </div>
+</nav>
+<section class="">
+    <div class="row d-flex justify-content-center align-items-center mt-5">
+            <div class="col-md-6">
+                <div class="card bg-dark bg-gradient text-white">
+                    <div class="card-header">
+                        <h3>
+                            Editar operação
+                        </h3>
+                    </div>
+                    <div class="mb-3 text-center">
+                            <!-- Exibir mensagens -->
+                        @if (TempData["MensagemSucesso"] != null)
+                        {
+                        <div class="bg-success text-center text-light form-control alert-dismissible fade show">
+                            <strong>Parabéns!</strong> @TempData["MensagemSucesso"]
+                        </div>
+                        }
+                        else if (TempData["MensagemAlerta"] != null)
+                        {
+                        <div class="bg-warning text-light text-center form-control alert-dismissible fade show">
+                            <strong>Alerta!</strong> @TempData["MensagemAlerta"]
+                                                       
+                        </div>
+                        }
+                        else if (TempData["MensagemErro"] != null)
+                        {
+                        <div class="bg-danger text-light text-center form-control alert-dismissible fade show">
+                            <strong>Erro!</strong> @TempData["MensagemErro"]
+                        </div>
+                        }
+                    </div>
+                    <div class="card-body">
+                        @using (Html.BeginForm(FormMethod.Post, new {@class=""}))
+                        {
+                            @Html.HiddenFor(model => model.IdOperacao);
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        @Html.TextBoxFor(model => model.NomeAtivo, new {@class="form-control text-white", @id="nome"})
+                                        <label class="form-label small text-white-50" for="nome">Nome do Ativo</label>
+                                    </div>
+                                    <div class="text-danger small">@Html.ValidationMessageFor(model => model.NomeAtivo)</div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                        @Html.TextBoxFor(model => model.SiglaAtivo, new {@class="form-control text-white", @id="sigla"})
+                                        <label class="form-label small text-white-50" for="sigla">Sigla do Ativo</label>
+                                    </div>
+                                    <div class="text-danger small">@Html.ValidationMessageFor(model => model.SiglaAtivo)</div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        @Html.TextBoxFor(model => model.PrecoAtivo, new {@class="form-control text-white", @id="preco", @type="number", @step="0.01"})
+                                        <label class="form-label small text-white-50" for="preco">Preço Unitário</label>
+                                    </div>
+                                    <div class="text-danger small">@Html.ValidationMessageFor(model => model.PrecoAtivo)</div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                        @Html.TextBoxFor(model => model.QuantidadeAtivo, new {@class="form-control text-white", @id="quant", @type="number", @step="0.01"})
+                                        <label class="form-label small text-white-50" for="quant">Quantidade</label>
+                                    </div>
+                                    <div class="text-danger small">@Html.ValidationMessageFor(model => model.QuantidadeAtivo)</div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-outline">
+                                        @Html.TextBoxFor(model => model.Total, new {@class="form-control text-white", @id="total", @type="number", @step="0.01"})
+                                        <label class="form-label small text-white-50" for="total">Investimento Total</label>
+                                    </div>
+                                    <div class="text-danger small">@Html.ValidationMessageFor(model => model.Total)</div>
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col">
+                                    @*
+                                    <label>Selecione uma carteira</label>
+                                    *@
+                                    @Html.DropDownListFor(model => model.Carteira, Model.SelectItemsCarteira, "Escolha uma carteira", new { @class = "form-select bg-dark-50 text-light" })
+                                    <div class="text-danger small">@Html.ValidationMessageFor(model => model.Carteira)</div>
+                                </div>
+                            </div>
+                             <div class="row mb-3">
+                                 <div class="col">
+                                     @*
+                                    <label>Selecione uma carteira para adicionar a operação:</label>
+                                     *@
+                                    @Html.DropDownListFor(model => model.TipoAtivo, Model.SelectItemsTipoAtivo, "Escolha o ativo", new { @class = "form-select bg-dark-50 text-light" })
+                                    <div class="text-danger small">@Html.ValidationMessageFor(model => model.TipoAtivo)</div>
+                                </div>
+                            </div>
+                             <div class="row mb-3">
+                                 <div class="col">
+                                     @*
+                                    <label>Selecione uma carteira para adicionar a operação:</label>
+                                     *@
+                                    @Html.DropDownListFor(model => model.TipoOperacao, Model.SelectItemsTipoOperacao, "Escolha a operação", new { @class = "form-select bg-dark-50 text-light" })
+                                <div class="text-danger small">@Html.ValidationMessageFor(model => model.TipoOperacao)</div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <div class="form-outline">
+                                        @Html.TextBoxFor(model => model.DataOperacao, new {@class="form-control text-white", @id="dataop", @type="date"})
+                                        <label class="form-label small text-white-50" for="dataop">Data da Operação</label>
+                                    </div>
+                                    <div class="text-danger small">@Html.ValidationMessageFor(model => model.DataOperacao)</div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="form-outline">
+                                    @Html.TextAreaFor(model => model.DescricaoAtivo, new {@class="form-control text-white", @id="desc"})
+                                    <label class="form-label small text-white-50" for="desc">Descricao</label>
+                                </div>
+                                <div class="text-danger small">@Html.ValidationMessageFor(model => model.DescricaoAtivo)</div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary form-control">Salvar Alterações</button>
+                        }
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+
+</section>

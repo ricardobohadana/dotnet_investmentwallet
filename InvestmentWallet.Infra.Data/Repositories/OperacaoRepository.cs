@@ -21,7 +21,20 @@ namespace InvestmentWallet.Infra.Data.Repositories
 
         public void Alterar(Operacao entity)
         {
-            throw new NotImplementedException();
+            string query = @"
+            UPDATE OPERACAO
+            SET
+                IDCARTEIRA=@IdCarteira, IDTIPOOPERACAO=@IdTipoOperacao, IDTIPOATIVO=@IdTipoAtivo, NOMEATIVO=@NomeAtivo,
+                SIGLAATIVO=@SiglaAtivo, DESCRICAOATIVO=@DescricaoAtivo, DATAOPERACAO=@DataOperacao, PRECOATIVO=@PrecoAtivo,
+                QUANTIDADEATIVO=@QuantidadeAtivo, TOTAL=@Total
+            WHERE
+                IDOPERACAO=@IdOperacao              
+            ";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Execute(query, entity);
+            }
         }
 
         public List<Operacao> Consultar()

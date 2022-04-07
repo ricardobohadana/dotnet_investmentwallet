@@ -115,7 +115,7 @@ namespace InvestmentWallet.Presentation.Controllers
         [HttpPost]
         public IActionResult Criar(OperacaoCriarModel model)
         {
-            //Criar uma interface para a implementação das regras de negócio para a criação de uma operação.
+            
             Guid idUsuario = Guid.Parse(HttpContext.User.Identity.Name);
             (var tiposOperacao, var tiposAtivo, var carteiras) = _operacaoDomainService.FornecerDadosCriacao(idUsuario);
 
@@ -159,6 +159,85 @@ namespace InvestmentWallet.Presentation.Controllers
             model.SelectItemsTipoOperacao = ObterSelecao(tiposOperacao);
             model.SelectItemsTipoAtivo = ObterSelecao(tiposAtivo);
             model.SelectItemsCarteira = ObterSelecao(carteiras);
+
+            return View(model);
+        }
+
+        public IActionResult Editar(Guid id)
+        {
+            Guid idUsuario = Guid.Parse(HttpContext.User.Identity.Name);
+            OperacaoEditarModel model = new OperacaoEditarModel();
+            List<TipoOperacao> tiposOperacao = new List<TipoOperacao>();
+            List<TipoAtivo> tiposAtivo = new List<TipoAtivo>();
+            List<Carteira> carteiras = new List<Carteira>();
+
+            try
+            {
+                (tiposOperacao, tiposAtivo, carteiras) = _operacaoDomainService.FornecerDadosCriacao(idUsuario);
+                Operacao operacao = _operacaoDomainService.FornecerDadosEdicao(id);
+
+                model.IdOperacao = id;
+                model.Carteira = operacao.IdCarteira.ToString();
+                model.NomeAtivo = operacao.NomeAtivo;
+                model.TipoAtivo = operacao.IdTipoAtivo.ToString();
+                model.DataOperacao = operacao.DataOperacao.ToString("yyyy-MM-dd");
+                model.DescricaoAtivo = operacao.DescricaoAtivo;
+                model.PrecoAtivo = operacao.PrecoAtivo.ToString();
+                model.QuantidadeAtivo = operacao.QuantidadeAtivo.ToString();
+                model.SiglaAtivo = operacao.SiglaAtivo;
+                model.TipoOperacao = operacao.IdTipoOperacao.ToString();
+                model.Total = operacao.Total.ToString();
+                
+                
+            } catch (Exception e)
+            {
+                TempData["MensagemErro"] = e.Message;
+            }
+
+            model.SelectItemsTipoOperacao = ObterSelecao(tiposOperacao);
+            model.SelectItemsTipoAtivo = ObterSelecao(tiposAtivo);
+            model.SelectItemsCarteira = ObterSelecao(carteiras);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(OperacaoEditarModel model)
+        {
+            Operacao operacao = new Operacao();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    operacao.IdOperacao = model.IdOperacao;
+                    operacao.IdCarteira = Guid.Parse(model.Carteira);
+                    operacao.IdTipoAtivo = Guid.Parse(model.TipoAtivo);
+                    operacao.IdTipoOperacao = Guid.Parse(model.TipoOperacao);
+                    operacao.DataOperacao = DateTime.Parse(model.DataOperacao);
+                    operacao.NomeAtivo = model.NomeAtivo;
+                    operacao.DescricaoAtivo = model.DescricaoAtivo;
+                    operacao.Total = (int)(Decimal.Parse(model.Total ?? "0.00", CultureInfo.InvariantCulture) * 100);
+                    operacao.PrecoAtivo = (int)(Decimal.Parse(model.PrecoAtivo, CultureInfo.InvariantCulture) * 100);
+                    operacao.QuantidadeAtivo = int.Parse(model.QuantidadeAtivo);
+                    operacao.SiglaAtivo = model.SiglaAtivo;
+
+                    _operacaoDomainService.AtualizarOperacao(operacao);
+
+                    TempData["MensagemSucesso"] = "As alterações foram salvas com sucesso.";
+
+                }
+                catch (Exception e)
+                {
+                    TempData["MensagemErro"] = e.Message;
+                }
+            }
+            Guid idUsuario = Guid.Parse(HttpContext.User.Identity.Name);
+            (var tiposOperacao, var tiposAtivo, var carteiras) = _operacaoDomainService.FornecerDadosCriacao(idUsuario);
+
+            model.SelectItemsTipoOperacao = ObterSelecao(tiposOperacao);
+            model.SelectItemsTipoAtivo = ObterSelecao(tiposAtivo);
+            model.SelectItemsCarteira = ObterSelecao(carteiras);
+
 
             return View(model);
         }
