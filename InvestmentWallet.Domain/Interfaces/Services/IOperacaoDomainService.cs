@@ -19,5 +19,6 @@ namespace InvestmentWallet.Domain.Interfaces.Services
 
         public void AtualizarOperacao(Operacao operacao);
 
+        public void ExcluirOperacao(Guid id);
     }
 }

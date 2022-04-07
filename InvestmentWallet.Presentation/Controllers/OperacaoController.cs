@@ -241,5 +241,21 @@ namespace InvestmentWallet.Presentation.Controllers
 
             return View(model);
         }
+
+
+        public IActionResult Excluir(Guid id)
+        {
+            try
+            {
+                _operacaoDomainService.ExcluirOperacao(id);
+            }
+            catch (Exception e)
+            {
+                TempData["MensagemErro"] = e.Message;
+            }
+            
+
+            return RedirectToAction(nameof(OperacaoController.Index), "OperacaoController");
+        }
     }
 }

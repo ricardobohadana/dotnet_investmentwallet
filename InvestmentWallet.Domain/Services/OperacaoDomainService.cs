@@ -119,5 +119,18 @@ namespace InvestmentWallet.Domain.Services
             if (estaAceitavel(operacao))
                 _operacaoRepository.Alterar(operacao);
         }
+
+        public void ExcluirOperacao(Guid id)
+        {
+            Operacao operacao = _operacaoRepository.ObterPorId(id);
+
+            if (operacao == null)
+            {
+                throw new Exception("Não existe operação cadastrada com esse índice.");
+            }
+
+            _operacaoRepository.Excluir(id);
+
+        }
     }
 }
