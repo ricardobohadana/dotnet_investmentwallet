@@ -95,7 +95,6 @@ namespace InvestmentWallet.Domain.Services
             return _operacaoRepository.ObterPorListaDeIdCarteiras(idsCarteira);
         }
 
-
         public void AtualizarOperacao(Operacao operacao)
         {
             Operacao oldOperacao = _operacaoRepository.ObterPorId(operacao.IdOperacao);
@@ -120,6 +119,12 @@ namespace InvestmentWallet.Domain.Services
 
             _operacaoRepository.Excluir(id);
 
+        }
+
+        public List<Operacao> ObterPorIdCarteira(Guid idCarteira)
+        {
+
+            return _operacaoRepository.ObterPorListaDeIdCarteiras(new List<Guid>() { idCarteira });
         }
     }
 }

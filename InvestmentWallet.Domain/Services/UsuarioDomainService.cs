@@ -16,13 +16,15 @@ namespace InvestmentWallet.Domain.Services
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly IPerfilInvestidorRepository _perfilInvestidorRepository;
         private readonly ICarteiraRepository _carteiraRepository;
+        private readonly IOperacaoRepository _operacaoRepository;
 
-        public UsuarioDomainService(IUsuarioRepository usuarioRepository, IPerfilInvestidorRepository perfilInvestidorRepository)
+        public UsuarioDomainService(IUsuarioRepository usuarioRepository, IPerfilInvestidorRepository perfilInvestidorRepository, ICarteiraRepository carteiraRepository, IOperacaoRepository operacaoRepository)
         {
             _usuarioRepository = usuarioRepository;
             _perfilInvestidorRepository = perfilInvestidorRepository;
+            _carteiraRepository = carteiraRepository;
+            _operacaoRepository = operacaoRepository;
         }
-
 
         private string CriptografarSenha(string senha)
         {
@@ -87,12 +89,12 @@ namespace InvestmentWallet.Domain.Services
 
         public Usuario ObterUsuarioPorId(Guid id)
         {
-            // Perguntar se essa é a melhor prática para conseguir os dados do usuário, uma vez que acessar o banco de dados 
-            // é uma tarefa custosa e, quanto maior a quantidade de relacionamentos, maior a quantidade de acessos (nessa arquitetura)
-            // e maior a demora.
-
             Usuario usuario = _usuarioRepository.ObterPorId(id);
             usuario.Carteiras = _carteiraRepository.ObterPorIdUsuario(usuario.IdUsuario);
+            foreach (Carteira carteira in usuario.Carteiras)
+            {
+                carteira.Operacoes = _operacaoRepository.ObterPorListaDeIdCarteiras(new List<Guid>(){ carteira.IdCarteira});
+            }
             usuario.PerfilInvestidor = _perfilInvestidorRepository.ObterPorId(usuario.IdPerfilInvestidor);
 
             return usuario;

@@ -1,7 +1,35 @@
-﻿@{
-    ViewData["Title"] = "Index";
+﻿@using InvestmentWallet.Domain.Entities
+@model InvestmentWallet.Presentation.Models.DashboardIndexModel
+@{
+    ViewData["Title"] = "Dashboard";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
-<div class="text-light">
+<nav class="navbar navbar-expand-lg bg-info mt-5">
+  <div class="container-fluid">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+      </ol>
+    </nav>
+  </div>
+</nav>
+<div class="row mt-5">
+    <div class="col-md-12">
+        <h2 class="text-white"><strong class="text-white-50">Bem vindo, </strong>@Model.usuario.Nome</h2>
+        <hr class="text-white bg-white"/>
+        <div class="row mt-3">
+            <div class="col">
+                <h5 class="text-light"><strong class="text-white-50">Perfil de Investidor: </strong>@Model.usuario.PerfilInvestidor.Tipo</h5>
+                <h6 class="text-light"><strong class="text-white-50">Desrição: </strong>@Model.usuario.PerfilInvestidor.Descricao</h6>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <h5 class="text-light"><strong class="text-white-50">Você possui </strong>@Model.usuario.Carteiras.Count()<strong class="text-white-50"> carteiras com um total de </strong>@Model.usuario.Carteiras.Sum(carteira => carteira.Operacoes.Count())<strong class="text-white-50"> operações.</strong></h5> 
+                <h5 class="text-light"><strong class="text-white-50">Sua carteira com maior investimento possui: </strong>@string.Format("{0:C}", Model.usuario.Carteiras.Max(carteira => carteira.Operacoes.Sum(operacao => operacao.Total))/100)</h5>
+            </div>
+        </div>
 
+
+    </div>
 </div>

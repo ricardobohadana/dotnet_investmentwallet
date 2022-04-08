@@ -1,5 +1,6 @@
 ﻿using InvestmentWallet.Domain.Entities;
 using InvestmentWallet.Domain.Interfaces.Services;
+using InvestmentWallet.Presentation.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -18,7 +19,13 @@ namespace InvestmentWallet.Presentation.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            Usuario usuario = _usuarioDomainService.ObterUsuarioPorId(Guid.Parse(HttpContext.User.Identity.Name));
+            DashboardIndexModel model = new DashboardIndexModel()
+            {
+                usuario = usuario,
+            };
+
+            return View(model);
         }
 
     }

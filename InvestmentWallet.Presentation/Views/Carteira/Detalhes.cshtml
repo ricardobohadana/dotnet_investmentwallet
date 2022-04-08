@@ -1,0 +1,127 @@
+﻿@using InvestmentWallet.Domain.Entities
+@model InvestmentWallet.Presentation.Models.CarteiraDetalhesModel
+@{
+    ViewData["Title"] = "Detalhes";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    List<Operacao> OperacoesCompra = Model.Carteira.Operacoes.FindAll(op => op.TipoOperacao.Nome.ToLower() == "compra").ToList();
+    List<Operacao> OperacoesVenda = Model.Carteira.Operacoes.FindAll(op => op.TipoOperacao.Nome.ToLower() == "venda").ToList();
+
+}
+<nav class="navbar navbar-expand-lg bg-info mt-5">
+  <div class="container-fluid">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/Dashboard/Index">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="/Dashboard/Index">Carteira</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+      </ol>
+    </nav>
+  </div>
+</nav>
+<div class="row">
+    <div class="col-md-12">
+        <section class="mt-3">
+            <h3 class="text-white-50">Operações de compra:</h3>
+            <table class="table table-hover table-striped table-responsive-md">
+                <thead class="bg-transparent text-white">
+                    <tr class="">
+                        <th>Carteira</th>
+                        <th>Data</th>
+                        <th>Operação</th>
+                        <th>Tipo do Ativo</th>
+                        <th>Nome</th>
+                        <th>Sigla</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                        <th>Investimento</th>
+                        <th><a href="/Operacao/Criar" class="btn btn-info text-black">Adicionar Operação</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (OperacoesCompra.Count() > 0)
+                    {
+                        @foreach (Operacao operacao in OperacoesCompra)
+                        {
+                            string total = string.Format("{0:C}", operacao.Total / 100);
+                            string precoAtivo = string.Format("{0:C}", operacao.PrecoAtivo / 100);
+
+                            <tr class="table-dark small">
+                                <td>@operacao.Carteira.Nome</td>
+                                <td>@operacao.DataOperacao.ToString("dd/MM/yyyy")</td>
+                                <td>@operacao.TipoOperacao.Nome</td>
+                                <td>@operacao.TipoAtivo.Nome</td>
+                                <td>@operacao.NomeAtivo</td>
+                                <td>@operacao.SiglaAtivo</td>
+                                <td>@precoAtivo</td>
+                                <td>@operacao.QuantidadeAtivo</td>
+                                <td class="text-danger">@total</td>
+                                <td>
+                                    <a href="/Operacao/Editar?id=@operacao.IdOperacao" class="btn btn-outline-warning">Editar</a>
+                                    <a href="/Operacao/Excluir?id=@operacao.IdOperacao" class="btn btn-outline-danger">Excluir</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <p>Não há operações de compra...</p>
+                    }
+
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <div class="col-md-12">
+        <section class="mt-3">
+            <h3 class="text-white-50">Operações de venda:</h3>
+            <table class="table table-hover table-striped table-responsive-md">
+                <thead class="bg-transparent text-white">
+                    <tr class="">
+                        <th>Carteira</th>
+                        <th>Data</th>
+                        <th>Operação</th>
+                        <th>Tipo do Ativo</th>
+                        <th>Nome</th>
+                        <th>Sigla</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                        <th>Retorno</th>
+                        <th><a href="/Operacao/Criar" class="btn btn-info text-black">Adicionar Operação</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (OperacoesVenda.Count() > 0)
+                    {
+                        @foreach (Operacao operacao in OperacoesVenda)
+                        {
+                            string total = string.Format("{0:C}", operacao.Total / 100);
+                            string precoAtivo = string.Format("{0:C}", operacao.PrecoAtivo / 100);
+
+                            <tr class="table-dark small">
+                                <td>@operacao.Carteira.Nome</td>
+                                <td>@operacao.DataOperacao.ToString("dd/MM/yyyy")</td>
+                                <td>@operacao.TipoOperacao.Nome</td>
+                                <td>@operacao.TipoAtivo.Nome</td>
+                                <td>@operacao.NomeAtivo</td>
+                                <td>@operacao.SiglaAtivo</td>
+                                <td>@precoAtivo</td>
+                                <td>@operacao.QuantidadeAtivo</td>
+                                <td class="text-success">@total</td>
+                                <td>
+                                    <a href="/Operacao/Editar?id=@operacao.IdOperacao" class="btn btn-outline-warning">Editar</a>
+                                    <a href="/Operacao/Excluir?id=@operacao.IdOperacao" class="btn btn-outline-danger">Excluir</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <p>Não há operações de venda...</p>
+                    }
+
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+

@@ -128,5 +128,27 @@ namespace InvestmentWallet.Presentation.Controllers
 
             return RedirectToAction(nameof(CarteiraController.Index), "Carteira");
         }    
+    
+    
+        public IActionResult Detalhes(Guid id, [FromServices] ICarteiraDomainService carteiraDomainService, [FromServices] IOperacaoDomainService operacaoDomainService)
+        {
+            CarteiraDetalhesModel model = new CarteiraDetalhesModel();
+            try
+            {
+                Carteira carteira = carteiraDomainService.ObterCarteira(id);
+                carteira.Operacoes = operacaoDomainService.ObterPorIdCarteira(id);
+
+                model.Carteira = carteira;
+            }
+            catch (Exception e)
+            {
+
+                TempData["MensagemErro"] = e.Message;
+            }
+
+            
+
+            return View(model);
+        }
     }
 }
