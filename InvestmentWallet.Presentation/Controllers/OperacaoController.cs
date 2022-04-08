@@ -248,6 +248,7 @@ namespace InvestmentWallet.Presentation.Controllers
             try
             {
                 _operacaoDomainService.ExcluirOperacao(id);
+                TempData["MensagemSucesso"] = "A operação foi excluída com sucesso!";
             }
             catch (Exception e)
             {
@@ -255,7 +256,7 @@ namespace InvestmentWallet.Presentation.Controllers
             }
             
 
-            return RedirectToAction(nameof(OperacaoController.Index), "OperacaoController");
+            return RedirectToAction(nameof(OperacaoController.Index), "Operacao");
         }
     }
 }

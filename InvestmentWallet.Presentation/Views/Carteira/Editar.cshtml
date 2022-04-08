@@ -1,8 +1,9 @@
-﻿@model InvestmentWallet.Presentation.Models.CarteiraCriarModel
+﻿@model InvestmentWallet.Presentation.Models.CarteiraEditarModel
 @{
-    ViewData["Title"] = "Criar";
+    ViewData["Title"] = "Editar";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
+
 <nav class="navbar navbar-expand-lg bg-info mt-5">
   <div class="container-fluid">
     <nav aria-label="breadcrumb">
@@ -20,13 +21,13 @@
                 <div class="card bg-dark bg-gradient text-white">
                     <div class="card-header">
                         <h3>
-                            Criar carteira
+                            Editar carteira
                         </h3>
                     </div>
                     <div class="card-body">
                         @using (Html.BeginForm(FormMethod.Post, new {@class=""}))
                         {
-                        
+                            @Html.HiddenFor(model => model.IdCarteira)
                             <div class="mb-3">
                                 <div class="form-outline">
                                     @Html.TextBoxFor(model => model.Nome, new {@class="form-control text-white-50", @id="nome"})
@@ -42,7 +43,7 @@
                                 <div class="text-danger small">@Html.ValidationMessageFor(model => model.Descricao)</div>
                             </div>
 
-                            <button type="submit" class="btn btn-primary form-control">Criar carteira</button>
+                            <button type="submit" class="btn btn-primary form-control">Salvar Alterações</button>
                         }
                     </div>
                     <div class="card-footer text-center">

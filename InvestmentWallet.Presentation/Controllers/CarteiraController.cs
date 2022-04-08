@@ -66,5 +66,67 @@ namespace InvestmentWallet.Presentation.Controllers
 
             return View();
         }
+    
+        
+        public IActionResult Editar(Guid id, [FromServices] ICarteiraDomainService carteiraDomainService)
+        {
+            Carteira carteira = carteiraDomainService.ObterCarteira(id);
+
+            CarteiraEditarModel model = new CarteiraEditarModel() {
+
+                IdCarteira = carteira.IdCarteira,
+                Nome = carteira.Nome,
+                Descricao = carteira.Descricao
+            };
+
+
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public IActionResult Editar(CarteiraEditarModel model, [FromServices] ICarteiraDomainService carteiraDomainService)
+        {
+            Carteira carteira = new Carteira()
+            {
+                IdUsuario = Guid.Parse(HttpContext.User.Identity.Name),
+                Descricao = model.Descricao,
+                IdCarteira = model.IdCarteira,
+                Nome= model.Nome,
+            };
+
+            try
+            {
+                carteiraDomainService.AtualizarCarteira(carteira);
+
+                TempData["MensagemSucesso"] = "Carteira atualizada com sucesso";
+            }
+            catch (Exception e)
+            {
+
+                TempData["MensagemErro"] = e.Message;
+            }
+
+
+            return View();
+        }
+    
+    
+        public IActionResult Excluir(Guid id, [FromServices] ICarteiraDomainService carteiraDomainService)
+        {
+            try
+            {
+                carteiraDomainService.ExcluirCarteira(id);
+
+                TempData["MensagemSucesso"] = "A carteira foi excluída com sucesso.";
+            }
+                catch (Exception e)
+            {
+
+                TempData["Message"] = e.Message;
+            }
+
+            return RedirectToAction(nameof(CarteiraController.Index), "Carteira");
+        }    
     }
 }

@@ -1,4 +1,5 @@
 ﻿using InvestmentWallet.Domain.Entities;
+using InvestmentWallet.Domain.Helpers;
 using InvestmentWallet.Domain.Interfaces.Repositories;
 using InvestmentWallet.Domain.Interfaces.Services;
 using System;
@@ -50,6 +51,51 @@ namespace InvestmentWallet.Domain.Services
             catch (Exception e)
             {
                 throw new Exception("Ocorreu um erro ao cadastrar a carteira no banco de dados:\n" + e.Message);
+            }
+        }
+
+        public Carteira ObterCarteira(Guid idCarteira)
+        {
+            Carteira carteira = _carteiraRepository.ObterPorId(idCarteira);
+            if (carteira == null)
+                throw new Exception("Esta carteira não existe");
+
+            return carteira;
+        }
+
+        public void AtualizarCarteira(Carteira carteira)
+        {
+            Carteira oldCarteira = _carteiraRepository.ObterPorId(carteira.IdCarteira);
+
+            // checar se é o mesmo objeto
+            if (Helpers<Carteira>.isSameObject(oldCarteira, carteira))
+                throw new Exception("Para requisitar uma atualização, é necessário realizar pelo menos uma modificação!");
+
+            //if (oldCarteira.Equals(carteira))
+            //    throw new Exception("Para requisitar uma atualização, é necessário realizar pelo menos uma modificação!");
+
+            if (oldCarteira.Descricao == carteira.Descricao &&
+                oldCarteira.Nome == carteira.Nome)
+                throw new Exception("Para requisitar uma atualização, é necessário realizar pelo menos uma modificação!");
+
+            _carteiraRepository.Alterar(carteira);
+
+        }
+
+        public void ExcluirCarteira(Guid id)
+        {
+            try
+            {
+                Carteira carteira = _carteiraRepository.ObterPorId(id);
+
+                if (carteira == null)
+                    throw new Exception("A carteira não foi encontrada.");
+                _carteiraRepository.Excluir(id);
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
             }
         }
     }

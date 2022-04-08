@@ -14,5 +14,11 @@ namespace InvestmentWallet.Domain.Interfaces.Services
         List<Carteira> ObterCarteirasPorUsuarioComOperacoes(Guid idUsuario);
 
         void Cadastrar(Carteira carteira);
+
+        Carteira ObterCarteira(Guid idCarteira);
+
+        public void AtualizarCarteira(Carteira carteira);
+
+        public void ExcluirCarteira(Guid id);
     }
 }

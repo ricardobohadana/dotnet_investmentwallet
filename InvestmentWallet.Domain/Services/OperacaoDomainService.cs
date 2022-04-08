@@ -1,4 +1,5 @@
 ﻿using InvestmentWallet.Domain.Entities;
+using InvestmentWallet.Domain.Helpers;
 using InvestmentWallet.Domain.Interfaces.Repositories;
 using InvestmentWallet.Domain.Interfaces.Services;
 using System;
@@ -94,24 +95,12 @@ namespace InvestmentWallet.Domain.Services
             return _operacaoRepository.ObterPorListaDeIdCarteiras(idsCarteira);
         }
 
-        private bool isSameObject(Operacao oldInstance, Operacao newInstance)
-        {
-            var oldProperties = oldInstance.GetType().GetProperties();
-            var newProperties = newInstance.GetType().GetProperties();
-            foreach (PropertyInfo info in oldProperties)
-            {
-                if (info.GetValue(oldInstance, null) != info.GetValue(newInstance, null)){
-                    return false;
-                }
-            }
-            return true;
-        }
 
         public void AtualizarOperacao(Operacao operacao)
         {
             Operacao oldOperacao = _operacaoRepository.ObterPorId(operacao.IdOperacao);
 
-            if (isSameObject(oldOperacao, operacao))
+            if (Helpers<Operacao>.isSameObject(oldOperacao, operacao))
             {
                 throw new Exception("Para requisitar uma atualização, é necessário realizar pelo menos uma modificação!");
             }
