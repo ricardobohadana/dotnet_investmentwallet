@@ -47,26 +47,63 @@
 
           <div class="d-flex align-items-center">
             <div class="d-none d-md-block me-4">
-                <span class="text-light">
-                    Bem vindo 
+                <span class="text-white-50">
+                    Usuário(a):
                 </span>
                 <strong class="ms-1 text-info" >
                     @User.Claims.Where(claim => claim.Type == ClaimTypes.GivenName).Select(claim => claim.Value).FirstOrDefault()
                 </strong>
             </div>
-            <a type="button" class="btn btn-outline-danger me-3" href="/Account/Logout">
+            <a class="btn btn-outline-light btn-sm me-4" role="button" href="/Dashboard/EditarPerfil">
+                <i class="fa-solid fa-pen-to-square"></i>
+                Editar Perfil
+            </a>
+            <a type="button" class="btn-sm btn btn-outline-danger me-3" href="/Account/Logout">
               Encerrar Sessão
             </a>
           </div>
         </div>
-        <!-- Collapsible wrapper -->
       </div>
-      <!-- Container wrapper -->
     </nav>
     <!-- Navbar -->
     <div class="container">
         @RenderBody()
     </div>
+    <footer class="bg-dark text-center text-white fixed-bottom">
+      <!-- Grid container -->
+      <div class="container p-4">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+          <!-- Linkedin -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/ricardobohadana/" target="_blank" role="button"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+
+          <!-- Github -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/ricardobohadana" target="_blank"  role="button"
+            ><i class="fab fa-github"></i
+          ></a>
+        </section>
+        <!-- Section: Social media -->
+
+       
+
+        <!-- Section: Text -->
+        <section class="mb-4">
+          <p>
+            Esta aplicação foi desenvolvida por <a class="link-info">Ricardo Bohadana Martins</a>
+            como parte de um projeto de treinamento de desenvolvimento de aplicações ASP.NET
+            utilizando .NET 6 com padrões MVC, boas práticas do SOLID e Domain Driven Design.
+          </p>
+        </section>
+        <!-- Section: Text -->
+
+       
+      </div>
+      <!-- Grid container -->
+
+    </footer>
+    <!-- Footer -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"></script>
 </body>
 </html>

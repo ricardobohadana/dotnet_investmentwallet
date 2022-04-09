@@ -8,18 +8,9 @@ namespace InvestmentWallet.Domain.Entities
 {
     public class PerfilInvestidor
     {
-        public PerfilInvestidor()
-        {
-            IdPerfilInvestidor = Guid.Parse("7dc669ba-3cef-4f27-9ef1-d573ae6b0a2f");
-            Tipo = "Conservador";
-            Descricao = "É aquele que tem forte repulsa ao risco e prefere aplicações seguras. Ou seja, não está disposto a perder mesmo diante da forte possibilidade de altos ganhos.";
-
-            Usuarios = new List<Usuario>();
-        }
-
         #region Propriedades
 
-        public Guid IdPerfilInvestidor { get; set; }
+        public Guid Id{ get; set; }
 
         public string Tipo { get; set; }
 

@@ -71,7 +71,7 @@ namespace InvestmentWallet.Domain.Services
             // REGRA DE PROJETO 2: CADASTRAR USUÁRIO COM PERFIL INICIAL CONSERVADOR
             PerfilInvestidor perfilInvestidor = _perfilInvestidorRepository.ObterPorTipo("Conservador");
             usuario.PerfilInvestidor = perfilInvestidor;
-            usuario.IdPerfilInvestidor = perfilInvestidor.IdPerfilInvestidor;
+            usuario.IdPerfilInvestidor = perfilInvestidor.Id;
 
             // REGRA DE PROJETO 3: CRIPTOGRAFAR A SENHA DO USUARIO
             usuario.Senha = CriptografarSenha(usuario.Senha);
@@ -98,6 +98,31 @@ namespace InvestmentWallet.Domain.Services
             usuario.PerfilInvestidor = _perfilInvestidorRepository.ObterPorId(usuario.IdPerfilInvestidor);
 
             return usuario;
+        }
+
+        public List<PerfilInvestidor> ObterPerfis()
+        {
+            List<PerfilInvestidor> perfisInvestidor = _perfilInvestidorRepository.Consultar();
+            return perfisInvestidor;
+        }
+
+        public void AtualizarUsuario(Usuario usuario)
+        {
+            // checando email
+            Usuario usuarioEmail = _usuarioRepository.Obter(usuario.Email);
+            if (usuarioEmail != null && usuarioEmail.IdUsuario != usuario.IdUsuario)
+            {
+                throw new Exception("Este email já está cadastrado por outro usuário.");
+            }
+
+            try
+            {
+                _usuarioRepository.Alterar(usuario);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
     }
 }

@@ -36,7 +36,7 @@ namespace InvestmentWallet.Presentation.Models
         public string TipoAtivo { get; set; }
 
 
-        [Required(ErrorMessage = "Por favor, selecione um tipo de operação.")]
+        [Required(ErrorMessage = "Por favor, preencha este campo.")]
         public string TipoOperacao { get; set; }
 
 

@@ -14,5 +14,9 @@ namespace InvestmentWallet.Domain.Interfaces.Services
         Usuario AutenticarUsuario(string email, string senha);
 
         Usuario ObterUsuarioPorId(Guid id);
+
+        List<PerfilInvestidor> ObterPerfis();
+
+        void AtualizarUsuario(Usuario usuario);
     }
 }

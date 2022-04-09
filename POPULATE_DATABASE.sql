@@ -9,7 +9,7 @@ VALUES ('02215fbd-1ccd-4e44-87f7-2ee1ad31720a', 'AÇÃO'), ('b2476190-6c8b-47b3-
 	   ('278f5ec1-ac8f-479a-a07a-699551e6eba4', 'FUNDOS DE INVESTIMENTO')
 
 
-INSERT INTO PERFILINVESTIDOR(IDPERFILINVESTIDOR, TIPO, DESCRICAO)
+INSERT INTO PERFILINVESTIDOR(ID, TIPO, DESCRICAO)
 VALUES	('010ba65f-be13-444e-9fe9-4424dc214181', 'Conservador', 'Prefere a segurança do seu patrimônio acima da rentabilidade.'),
 		('d2693935-a641-4410-bf79-c95358eccdd6', 'Moderado', 'Mantém forte interesse pela segurança, mas está disposta a abrir mão de parte dela às vezes para ter retornos melhores.'),
 		('6170d630-0028-46b6-a98f-ffc3ce6d3290', 'Agressivo', 'Tem alta tolerância a riscos e baixa necessidade de liquidez em curto ou médio prazo.')
