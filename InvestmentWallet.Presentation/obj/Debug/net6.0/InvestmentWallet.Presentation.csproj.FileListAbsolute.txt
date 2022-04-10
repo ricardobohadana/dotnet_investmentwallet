@@ -484,3 +484,4 @@ D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Presentation\
 D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Presentation\obj\Debug\net6.0\InvestmentWallet.Presentation.csproj.CopyComplete
 D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Presentation\obj\Debug\net6.0\InvestmentWallet.Presentation.genruntimeconfig.cache
 D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Presentation\obj\Debug\net6.0\ref\InvestmentWallet.Presentation.dll
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Presentation\bin\Debug\net6.0\Npgsql.dll

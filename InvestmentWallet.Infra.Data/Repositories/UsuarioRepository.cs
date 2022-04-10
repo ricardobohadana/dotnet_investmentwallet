@@ -1,6 +1,7 @@
-﻿using Dapper;
-using InvestmentWallet.Domain.Entities;
+﻿using InvestmentWallet.Domain.Entities;
 using InvestmentWallet.Domain.Interfaces.Repositories;
+using InvestmentWallet.Infra.Data.Database;
+using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -13,10 +14,12 @@ namespace InvestmentWallet.Infra.Data.Repositories
     public class UsuarioRepository : IUsuarioRepository
     {
         private string _connectionString;
+        private bool isDev;
 
         public UsuarioRepository(string connectionString)
         {
             _connectionString = connectionString;
+            isDev = false;
         }
 
         public void Alterar(Usuario entity)
@@ -25,7 +28,7 @@ namespace InvestmentWallet.Infra.Data.Repositories
                 NOME=@Nome, IDPERFILINVESTIDOR=@IdPerfilInvestidor
                 WHERE IDUSUARIO=@IdUsuario";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
                 connection.Execute(query, entity);
             }
@@ -35,7 +38,7 @@ namespace InvestmentWallet.Infra.Data.Repositories
         {
             string query = @"SELECT * FROM USUARIO ORDER BY NOME";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
                 return connection.Query<Usuario>(query).ToList();
             }
@@ -45,7 +48,7 @@ namespace InvestmentWallet.Infra.Data.Repositories
         {
             string query = @"DELETE FROM USUARIO WHERE IDUSUARIO=@id";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
                 connection.Execute(query, new { id });
             }
@@ -55,7 +58,7 @@ namespace InvestmentWallet.Infra.Data.Repositories
         {
             string query = @"INSERT INTO USUARIO (IDUSUARIO, IDPERFILINVESTIDOR, NOME, SENHA, EMAIL) VALUES (@IdUsuario, @IdPerfilInvestidor, @Nome, @Senha, @Email)";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
                 connection.Execute(query, entity);
             }
@@ -65,7 +68,7 @@ namespace InvestmentWallet.Infra.Data.Repositories
         {
             string query = @"SELECT * FROM USUARIO WHERE EMAIL=@email";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
                 return connection.Query<Usuario>(query, new { email }).FirstOrDefault();
             }
@@ -75,7 +78,7 @@ namespace InvestmentWallet.Infra.Data.Repositories
         {
             string query = @"SELECT * FROM USUARIO WHERE EMAIL=@email AND SENHA=@senha";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
                 return connection.Query<Usuario>(query, new { email, senha}).FirstOrDefault();
             }
@@ -85,9 +88,9 @@ namespace InvestmentWallet.Infra.Data.Repositories
         {
             string query = @"SELECT * FROM USUARIO WHERE IDUSUARIO=@id";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
-                return connection.Query<Usuario>(query, new {id}).FirstOrDefault();
+                return connection.Query<Usuario>(query, new { id }).FirstOrDefault();
             }
         }
     }

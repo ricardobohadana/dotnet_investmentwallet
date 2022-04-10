@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using InvestmentWallet.Domain.Entities;
 using InvestmentWallet.Domain.Interfaces.Repositories;
+using InvestmentWallet.Infra.Data.Database;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -13,17 +14,19 @@ namespace InvestmentWallet.Infra.Data.Repositories
     public class TipoAtivoRepository : ITipoAtivoRepository
     {
         private string _connectionString;
+        private bool isDev;
 
         public TipoAtivoRepository(string connectionString)
         {
             _connectionString = connectionString;
+            isDev = false;
         }
 
         public List<TipoAtivo> Consultar()
         {
             string query = @"SELECT * FROM TIPOATIVO";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
                 return connection.Query<TipoAtivo>(query).ToList();
             }
@@ -33,7 +36,7 @@ namespace InvestmentWallet.Infra.Data.Repositories
         {
             string query = @"SELECT * FROM TIPOATIVO WHERE IDTIPOATIVO=@id";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
                 return connection.Query<TipoAtivo>(query, new { id }).FirstOrDefault();
             }
@@ -43,7 +46,7 @@ namespace InvestmentWallet.Infra.Data.Repositories
         {
             string query = @"SELECT * FROM TIPOATIVO WHERE NOME=@nome";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
                 return connection.Query<TipoAtivo>(query, new { nome }).FirstOrDefault();
             }

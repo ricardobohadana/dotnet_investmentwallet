@@ -3,6 +3,7 @@ using InvestmentWallet.Domain.Interfaces.Services;
 using InvestmentWallet.Domain.Services;
 using InvestmentWallet.Infra.Data.Repositories;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,9 +21,31 @@ builder.Services.AddDistributedMemoryCache();
 //});
 // end config working with sessions
 
-
+bool isDev = false;
+string connectionString;
 // Ler a connection string do banco de dados
-string connectionString = builder.Configuration.GetConnectionString("BDInvestmentWallet");
+if (isDev)
+    connectionString = builder.Configuration.GetConnectionString("BDInvestmentWallet");
+else
+{
+    string conn = builder.Configuration.GetConnectionString("BdPostgresSQL");
+    Uri databaseUri = new Uri(conn);
+    var userInfo = databaseUri.UserInfo.Split(':');
+    var npgsqlBuilder = new NpgsqlConnectionStringBuilder
+    {
+        Host = databaseUri.Host,
+        Port = databaseUri.Port,
+        Username = userInfo[0],
+        Password = userInfo[1],
+        Database = databaseUri.LocalPath.TrimStart('/'),
+        SslMode = SslMode.Require,
+        TrustServerCertificate = true,
+    };
+
+    connectionString = npgsqlBuilder.ToString();
+
+}
+
 
 // Injeção de dependência da connectionString
 builder.Services.AddTransient<IUsuarioRepository>(map => new UsuarioRepository(connectionString));

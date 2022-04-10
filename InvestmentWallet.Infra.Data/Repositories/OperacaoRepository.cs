@@ -1,6 +1,8 @@
 ﻿using Dapper;
 using InvestmentWallet.Domain.Entities;
 using InvestmentWallet.Domain.Interfaces.Repositories;
+using InvestmentWallet.Infra.Data.Database;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -13,10 +15,12 @@ namespace InvestmentWallet.Infra.Data.Repositories
     public class OperacaoRepository : IOperacaoRepository
     {
         private string _connectionString;
+        private bool isDev;
 
         public OperacaoRepository(string connectionString)
         {
             _connectionString = connectionString;
+            isDev = false;
         }
 
         public void Alterar(Operacao entity)
@@ -31,7 +35,7 @@ namespace InvestmentWallet.Infra.Data.Repositories
                 IDOPERACAO=@IdOperacao              
             ";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
                 connection.Execute(query, entity);
             }
@@ -41,7 +45,7 @@ namespace InvestmentWallet.Infra.Data.Repositories
         {
             string query = @"SELECT * FROM OPERACAO ORDER BY DATAOPERACAO";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
                 return connection.Query<Operacao>(query).ToList();
             }
@@ -53,7 +57,7 @@ namespace InvestmentWallet.Infra.Data.Repositories
                 DELETE FROM OPERACAO WHERE IDOPERACAO=@id
             ";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
                 connection.Execute(query, new { id });
             }
@@ -69,7 +73,7 @@ namespace InvestmentWallet.Infra.Data.Repositories
                     (@IdOperacao, @IdCarteira, @IdTipoOperacao, @IdTipoAtivo, @NomeAtivo, @SiglaAtivo, @DescricaoAtivo, @DataOperacao, @PrecoAtivo, @QuantidadeAtivo, @Total)
             ";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
                 connection.Execute(query, entity);
             }
@@ -79,7 +83,7 @@ namespace InvestmentWallet.Infra.Data.Repositories
         {
             string query = @"SELECT * FROM OPERACAO WHERE IDOPERACAO=@id";
 
-            using(SqlConnection connection = new SqlConnection(_connectionString))
+            using(var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
                 return connection.Query<Operacao>(query, new { id }).FirstOrDefault();
             }
@@ -110,8 +114,8 @@ namespace InvestmentWallet.Infra.Data.Repositories
             INNER JOIN TIPOATIVO ON OPERACAO.IDTIPOATIVO=TIPOATIVO.IDTIPOATIVO
             INNER JOIN CARTEIRA ON OPERACAO.IDCARTEIRA=CARTEIRA.IDCARTEIRA
             WHERE OPERACAO.IDCARTEIRA IN @ids";
-            
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            //
+            using (var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
                 return connection.Query<Operacao, TipoOperacao, TipoAtivo, Carteira, Operacao>(
                     query,

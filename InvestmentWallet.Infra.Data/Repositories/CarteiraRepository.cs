@@ -1,6 +1,8 @@
 ﻿using Dapper;
 using InvestmentWallet.Domain.Entities;
 using InvestmentWallet.Domain.Interfaces.Repositories;
+using InvestmentWallet.Infra.Data.Database;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -13,10 +15,12 @@ namespace InvestmentWallet.Infra.Data.Repositories
     public class CarteiraRepository : ICarteiraRepository
     {
         string _connectionString;
+        private bool isDev;
 
         public CarteiraRepository(string connectionString)
         {
             _connectionString = connectionString;
+            isDev = false;
         }
 
         public void Alterar(Carteira entity)
@@ -27,7 +31,7 @@ namespace InvestmentWallet.Infra.Data.Repositories
                     WHERE IDCARTEIRA=@IdCarteira
             ";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
                 connection.Execute(query, entity);
             }
@@ -44,7 +48,7 @@ namespace InvestmentWallet.Infra.Data.Repositories
                 DELETE FROM CARTEIRA WHERE IDCARTEIRA=@id
             ";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
                 connection.Execute(query, new { id });
             }
@@ -57,7 +61,7 @@ namespace InvestmentWallet.Infra.Data.Repositories
                     VALUES (@IdCarteira, @IdUsuario, @Nome, @Descricao)
             ";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
                 connection.Execute(query, entity);
             }
@@ -69,7 +73,7 @@ namespace InvestmentWallet.Infra.Data.Repositories
                 SELECT * FROM CARTEIRA WHERE IDCARTEIRA=@id
             ";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
                 return connection.Query<Carteira>(query, new { id }).FirstOrDefault();
             }
@@ -81,7 +85,7 @@ namespace InvestmentWallet.Infra.Data.Repositories
                 SELECT * FROM CARTEIRA WHERE IDUSUARIO=@id 
             ";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
                 return connection.Query<Carteira>(query, new { id }).ToList();
             }
