@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bmart\\Documents\\Dev\\C#\\InvestmentWallet\\InvestmentWallet.Domain\\InvestmentWallet.Domain.csproj": {}
+    "D:\\RicardoBMartins\\dotNET\\dotnet_investmentwallet\\InvestmentWallet.Domain\\InvestmentWallet.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bmart\\Documents\\Dev\\C#\\InvestmentWallet\\InvestmentWallet.Domain\\InvestmentWallet.Domain.csproj": {
+    "D:\\RicardoBMartins\\dotNET\\dotnet_investmentwallet\\InvestmentWallet.Domain\\InvestmentWallet.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bmart\\Documents\\Dev\\C#\\InvestmentWallet\\InvestmentWallet.Domain\\InvestmentWallet.Domain.csproj",
+        "projectUniqueName": "D:\\RicardoBMartins\\dotNET\\dotnet_investmentwallet\\InvestmentWallet.Domain\\InvestmentWallet.Domain.csproj",
         "projectName": "InvestmentWallet.Domain",
-        "projectPath": "C:\\Users\\bmart\\Documents\\Dev\\C#\\InvestmentWallet\\InvestmentWallet.Domain\\InvestmentWallet.Domain.csproj",
-        "packagesPath": "C:\\Users\\bmart\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bmart\\Documents\\Dev\\C#\\InvestmentWallet\\InvestmentWallet.Domain\\obj\\",
+        "projectPath": "D:\\RicardoBMartins\\dotNET\\dotnet_investmentwallet\\InvestmentWallet.Domain\\InvestmentWallet.Domain.csproj",
+        "packagesPath": "C:\\Users\\RicardoBohadana\\.nuget\\packages\\",
+        "outputPath": "D:\\RicardoBMartins\\dotNET\\dotnet_investmentwallet\\InvestmentWallet.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\bmart\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\RicardoBohadana\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

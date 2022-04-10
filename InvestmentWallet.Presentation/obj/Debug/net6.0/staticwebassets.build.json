@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "alwmTeskjISK2q9JnjTIQNhWrC0Bkcu1m4wEHzMXFNM=",
+  "Hash": "LhSX1lkzcJEdvyd4QuN1DJ3ITVsjufgnJ9X4GclqwHQ=",
   "Source": "InvestmentWallet.Presentation",
   "BasePath": "_content/InvestmentWallet.Presentation",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "InvestmentWallet.Presentation\\wwwroot",
       "Source": "InvestmentWallet.Presentation",
-      "ContentRoot": "C:\\Users\\bmart\\Documents\\Dev\\C#\\InvestmentWallet\\InvestmentWallet.Presentation\\wwwroot\\",
+      "ContentRoot": "D:\\RicardoBMartins\\dotNET\\dotnet_investmentwallet\\InvestmentWallet.Presentation\\wwwroot\\",
       "BasePath": "_content/InvestmentWallet.Presentation",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\bmart\\Documents\\Dev\\C#\\InvestmentWallet\\InvestmentWallet.Presentation\\wwwroot\\css\\global.css",
+      "Identity": "D:\\RicardoBMartins\\dotNET\\dotnet_investmentwallet\\InvestmentWallet.Presentation\\wwwroot\\css\\global.css",
       "SourceId": "InvestmentWallet.Presentation",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\bmart\\Documents\\Dev\\C#\\InvestmentWallet\\InvestmentWallet.Presentation\\wwwroot\\",
+      "ContentRoot": "D:\\RicardoBMartins\\dotNET\\dotnet_investmentwallet\\InvestmentWallet.Presentation\\wwwroot\\",
       "BasePath": "_content/InvestmentWallet.Presentation",
       "RelativePath": "css/global.css",
       "AssetKind": "All",

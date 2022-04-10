@@ -1,4 +1,6 @@
-﻿using Npgsql;
+﻿using DapperExtensions;
+using DapperExtensions.Sql;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -21,6 +23,8 @@ namespace InvestmentWallet.Infra.Data.Database
         {
             //if (dev)
             //    return new SqlConnection(connectionString);
+            DapperExtensions.DapperExtensions.SqlDialect = new PostgreSqlDialect();
+            DapperAsyncExtensions.SqlDialect = new PostgreSqlDialect();
             return new NpgsqlConnection(connectionString);
         }
 

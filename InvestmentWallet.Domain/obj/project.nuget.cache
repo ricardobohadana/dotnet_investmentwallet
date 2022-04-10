@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "CXDUs6ZGrfJcbr5578L619wTLHYeWsijGjB/OQDY16vXsuPWPVwgwdS4jWfsZJENwx235HEkoNJGltDuieyjDw==",
+  "dgSpecHash": "yim6/urf3me2vcKSqKlzACWAva08LxQJmeDXdrilzZlqnFemP4qnzPKHEmVHGZh7onKWJnL1m+RgmZmbUQoYOA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bmart\\Documents\\Dev\\C#\\InvestmentWallet\\InvestmentWallet.Domain\\InvestmentWallet.Domain.csproj",
+  "projectFilePath": "D:\\RicardoBMartins\\dotNET\\dotnet_investmentwallet\\InvestmentWallet.Domain\\InvestmentWallet.Domain.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\bmart\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.3\\microsoft.aspnetcore.cryptography.internal.6.0.3.nupkg.sha512",
-    "C:\\Users\\bmart\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.3\\microsoft.aspnetcore.cryptography.keyderivation.6.0.3.nupkg.sha512"
+    "C:\\Users\\RicardoBohadana\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.3\\microsoft.aspnetcore.cryptography.internal.6.0.3.nupkg.sha512",
+    "C:\\Users\\RicardoBohadana\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.3\\microsoft.aspnetcore.cryptography.keyderivation.6.0.3.nupkg.sha512"
   ],
   "logs": []
 }

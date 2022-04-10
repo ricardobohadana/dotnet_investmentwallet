@@ -91,6 +91,19 @@ namespace InvestmentWallet.Infra.Data.Repositories
 
         public List<Operacao> ObterPorListaDeIdCarteiras(List<Guid> ids)
         {
+            string guids = "";
+            foreach (Guid id in ids)
+            {
+                guids = guids + "'" + id.ToString() + "'";
+
+                if (ids.IndexOf(id) != ids.Count()-1)
+                {
+                    guids = guids + ",";
+                }
+
+            }
+
+
             string query = @"
             SELECT 
 	            OPERACAO.IDOPERACAO,
@@ -113,7 +126,8 @@ namespace InvestmentWallet.Infra.Data.Repositories
             INNER JOIN TIPOOPERACAO ON OPERACAO.IDTIPOOPERACAO=TIPOOPERACAO.IDTIPOOPERACAO
             INNER JOIN TIPOATIVO ON OPERACAO.IDTIPOATIVO=TIPOATIVO.IDTIPOATIVO
             INNER JOIN CARTEIRA ON OPERACAO.IDCARTEIRA=CARTEIRA.IDCARTEIRA
-            WHERE OPERACAO.IDCARTEIRA IN @ids";
+            WHERE OPERACAO.IDCARTEIRA IN (" + guids + ")";
+
             //
             using (var connection = DatabaseSqlConnection.GetConnection(_connectionString, isDev))
             {
@@ -127,8 +141,7 @@ namespace InvestmentWallet.Infra.Data.Repositories
 
                         return op;
                     },
-                    splitOn: "IDTIPOOPERACAO,IDTIPOATIVO,IDCARTEIRA",
-                    param: new { ids }).ToList();
+                    splitOn: "IDTIPOOPERACAO,IDTIPOATIVO,IDCARTEIRA").ToList();
             }
         }
 
