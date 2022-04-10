@@ -18,6 +18,10 @@
     background: #888;
 }
 
+.min-h-85 {
+    min-height: 85%;
+}
+
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
