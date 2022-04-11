@@ -8,61 +8,61 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = InvestmentWallet.Presentation
 build_property.RootNamespace = InvestmentWallet.Presentation
-build_property.ProjectDir = D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Presentation\
+build_property.ProjectDir = C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Presentation\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Presentation
+build_property.MSBuildProjectDirectory = C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Presentation
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/RicardoBMartins/dotNET/dotnet_investmentwallet/InvestmentWallet.Presentation/Views/Account/Login.cshtml]
+[C:/Users/bmart/Documents/Dev/C\#/InvestmentWallet/InvestmentWallet.Presentation/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RicardoBMartins/dotNET/dotnet_investmentwallet/InvestmentWallet.Presentation/Views/Account/Register.cshtml]
+[C:/Users/bmart/Documents/Dev/C\#/InvestmentWallet/InvestmentWallet.Presentation/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RicardoBMartins/dotNET/dotnet_investmentwallet/InvestmentWallet.Presentation/Views/Carteira/Criar.cshtml]
+[C:/Users/bmart/Documents/Dev/C\#/InvestmentWallet/InvestmentWallet.Presentation/Views/Carteira/Criar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydGVpcmFcQ3JpYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RicardoBMartins/dotNET/dotnet_investmentwallet/InvestmentWallet.Presentation/Views/Carteira/Detalhes.cshtml]
+[C:/Users/bmart/Documents/Dev/C\#/InvestmentWallet/InvestmentWallet.Presentation/Views/Carteira/Detalhes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydGVpcmFcRGV0YWxoZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RicardoBMartins/dotNET/dotnet_investmentwallet/InvestmentWallet.Presentation/Views/Carteira/Editar.cshtml]
+[C:/Users/bmart/Documents/Dev/C\#/InvestmentWallet/InvestmentWallet.Presentation/Views/Carteira/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydGVpcmFcRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RicardoBMartins/dotNET/dotnet_investmentwallet/InvestmentWallet.Presentation/Views/Carteira/Index.cshtml]
+[C:/Users/bmart/Documents/Dev/C\#/InvestmentWallet/InvestmentWallet.Presentation/Views/Carteira/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydGVpcmFcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RicardoBMartins/dotNET/dotnet_investmentwallet/InvestmentWallet.Presentation/Views/Dashboard/EditarPerfil.cshtml]
+[C:/Users/bmart/Documents/Dev/C\#/InvestmentWallet/InvestmentWallet.Presentation/Views/Dashboard/EditarPerfil.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEVkaXRhclBlcmZpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RicardoBMartins/dotNET/dotnet_investmentwallet/InvestmentWallet.Presentation/Views/Dashboard/Index.cshtml]
+[C:/Users/bmart/Documents/Dev/C\#/InvestmentWallet/InvestmentWallet.Presentation/Views/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RicardoBMartins/dotNET/dotnet_investmentwallet/InvestmentWallet.Presentation/Views/Operacao/Criar.cshtml]
+[C:/Users/bmart/Documents/Dev/C\#/InvestmentWallet/InvestmentWallet.Presentation/Views/Operacao/Criar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BlcmFjYW9cQ3JpYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RicardoBMartins/dotNET/dotnet_investmentwallet/InvestmentWallet.Presentation/Views/Operacao/Editar.cshtml]
+[C:/Users/bmart/Documents/Dev/C\#/InvestmentWallet/InvestmentWallet.Presentation/Views/Operacao/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BlcmFjYW9cRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RicardoBMartins/dotNET/dotnet_investmentwallet/InvestmentWallet.Presentation/Views/Operacao/Index.cshtml]
+[C:/Users/bmart/Documents/Dev/C\#/InvestmentWallet/InvestmentWallet.Presentation/Views/Operacao/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BlcmFjYW9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RicardoBMartins/dotNET/dotnet_investmentwallet/InvestmentWallet.Presentation/Views/Shared/Layout.cshtml]
+[C:/Users/bmart/Documents/Dev/C\#/InvestmentWallet/InvestmentWallet.Presentation/Views/Shared/Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RicardoBMartins/dotNET/dotnet_investmentwallet/InvestmentWallet.Presentation/Views/Shared/Layout_Account.cshtml]
+[C:/Users/bmart/Documents/Dev/C\#/InvestmentWallet/InvestmentWallet.Presentation/Views/Shared/Layout_Account.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExheW91dF9BY2NvdW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

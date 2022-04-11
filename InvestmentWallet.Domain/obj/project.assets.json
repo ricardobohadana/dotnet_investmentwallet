@@ -71,19 +71,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\RicardoBohadana\\.nuget\\packages\\": {}
+    "C:\\Users\\bmart\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\RicardoBMartins\\dotNET\\dotnet_investmentwallet\\InvestmentWallet.Domain\\InvestmentWallet.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\bmart\\Documents\\Dev\\C#\\InvestmentWallet\\InvestmentWallet.Domain\\InvestmentWallet.Domain.csproj",
       "projectName": "InvestmentWallet.Domain",
-      "projectPath": "D:\\RicardoBMartins\\dotNET\\dotnet_investmentwallet\\InvestmentWallet.Domain\\InvestmentWallet.Domain.csproj",
-      "packagesPath": "C:\\Users\\RicardoBohadana\\.nuget\\packages\\",
-      "outputPath": "D:\\RicardoBMartins\\dotNET\\dotnet_investmentwallet\\InvestmentWallet.Domain\\obj\\",
+      "projectPath": "C:\\Users\\bmart\\Documents\\Dev\\C#\\InvestmentWallet\\InvestmentWallet.Domain\\InvestmentWallet.Domain.csproj",
+      "packagesPath": "C:\\Users\\bmart\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\bmart\\Documents\\Dev\\C#\\InvestmentWallet\\InvestmentWallet.Domain\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\RicardoBohadana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\bmart\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

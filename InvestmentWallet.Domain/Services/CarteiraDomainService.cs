@@ -31,6 +31,11 @@ namespace InvestmentWallet.Domain.Services
         {
             List<Carteira> carteiraList = ConsultarCarteirasPorUsuario(idUsuario);
             List<Guid> carteiraIds = carteiraList.Select(carteira => carteira.IdCarteira).ToList();
+            if (carteiraIds.Count() == 0)
+            {
+                return carteiraList;
+            }
+
             List<Operacao> operacaoList = _operacaoRepository.ObterPorListaDeIdCarteiras(carteiraIds);
 
             foreach (Carteira carteira in carteiraList)

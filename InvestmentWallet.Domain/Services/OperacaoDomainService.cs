@@ -92,6 +92,12 @@ namespace InvestmentWallet.Domain.Services
         public List<Operacao>  ObterDadosIndex(Guid idUsuario)
         {
             List<Guid> idsCarteira = _carteiraRepository.ObterPorIdUsuario(idUsuario).Select(carteira => carteira.IdCarteira).ToList();
+
+            if (idsCarteira.Count() == 0)
+            {
+                return new List<Operacao>();
+            }
+
             return _operacaoRepository.ObterPorListaDeIdCarteiras(idsCarteira);
         }
 

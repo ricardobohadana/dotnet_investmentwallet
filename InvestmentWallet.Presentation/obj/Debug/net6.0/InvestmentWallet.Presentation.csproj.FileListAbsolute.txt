@@ -489,3 +489,6 @@ D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Presentation\
 D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Presentation\bin\Debug\net6.0\DapperExtensions.dll
 D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Presentation\bin\Debug\net6.0\Oracle.ManagedDataAccess.dll
 D:\RicardoBMartins\dotNET\dotnet_investmentwallet\InvestmentWallet.Presentation\bin\Debug\net6.0\Slapper.dll
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Presentation\bin\Debug\net6.0\DapperExtensions.dll
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Presentation\bin\Debug\net6.0\Oracle.ManagedDataAccess.dll
+C:\Users\bmart\Documents\Dev\C#\InvestmentWallet\InvestmentWallet.Presentation\bin\Debug\net6.0\Slapper.dll
